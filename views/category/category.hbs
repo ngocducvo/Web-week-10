@@ -1,0 +1,56 @@
+<!-- Modal Add Category -->
+<div class="modal fade" id="AddCatModal" tabindex="-1" role="dialog" aria-labelledby="AddCatModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center mt-3 team-divider">
+                <h3 class="modal-title" id="AddColModalTitle" style="font-weight: bolder;">Add Category</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <form id="formAddCat" action="/category" method="post">
+                        <input type="text" class="form-control" name="CatName" placeholder="Enter new category name">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center team-divider">
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary mr-2" form="formAddCat">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mx-auto my-5 w-75">
+    <div class="card w-100">
+        <div class="card-header">
+            Quản lý Category của bạn
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddCatModal">Add new category</button>
+            <table class="table table-hover my-2">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each categories}}
+                    <tr>
+                        <th scope="row">{{this.CatID}}</th>
+                        <td>{{this.CatName}}</td>
+                        <td class="text-right">
+                            <a href="category/product/{{this.CatID}}" type="button" class="btn btn-light btn-small">View Products</a>
+                            <a href="category/editcat/{{this.CatID}}" type="button" class="btn btn-light btn-small">Edit</a>
+                            <a href="category/delete/{{this.CatID}}" type="button" class="btn btn-light btn-small">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

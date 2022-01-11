@@ -1,0 +1,42 @@
+
+<div class="row mx-auto my-5">
+    <div class="card w-100">
+        <div class="card-header">
+            Quản lý các sản phẩm của bạn
+        </div>
+        <div class="card-body">
+            <a href="/product/add-product" class="btn btn-primary">Add new product</a>
+            <table class="table table-hover my-2">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">TinyDes</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                    <tr>
+                        <th scope="row">{{this.ProID}}</th>
+                        <td><img src="{{this.ImgPath}}" width="100" height="100"></td>
+                        <td>
+                            {{this.ProName}}
+                        </td>
+                        <td>{{this.TinyDes}}</td>
+                        <td>{{this.Price}}</td>
+                        <td>{{this.Quantity}}</td>
+                        <td class="text-right">
+                            <a href="product/edit/{{this.ProID}}" type="button" class="btn btn-light btn-small">Edit</a>
+                            <a href="product/delete/{{this.ProID}}" type="button" class="btn btn-light btn-small">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
